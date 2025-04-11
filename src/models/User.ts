@@ -1,9 +1,9 @@
 import { Schema, model } from 'mongoose';
 
 interface IUser extends Document {
-    username: string;
-    email: string;
-    thoughts: Schema.Types.ObjectId[];
+    username: string,
+    email: string,
+    thoughts: Schema.Types.ObjectId[],
     friends: Schema.Types.ObjectId[];
 }
 
