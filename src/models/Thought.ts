@@ -1,5 +1,4 @@
-import { Schema, model } from 'mongoose' 
-import reactionSchema from './Reaction.ts'
+import { Schema, Types, model } from 'mongoose' 
 
 interface IThought extends Document {
     thoughtText: String,
@@ -7,6 +6,42 @@ interface IThought extends Document {
     username: String,
     reactions: Schema.Types.ObjectId[]
 }
+
+interface IReaction extends Document {
+    reactionId: Schema.Types.ObjectId,
+    reactionBody: String,
+    username: String,
+    createdAt: Schema.Types.Date
+}
+
+const reactionSchema = new Schema<IReaction>(
+    {
+        reactionId: {
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId(),
+        },
+        reactionBody: {
+            type: String,
+            required: true,
+            maxlength: 280,
+        },
+        username: {
+            type: String,
+            required: true,
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: (timestamp: any) => dateFormat(timestamp)
+        },
+    },
+    {
+        toJSON: {
+            timestamp: true,
+        },
+        id: false,
+    }
+);
 
 const thoughtSchema = new Schema<IThought>({
     thoughtText: {
