@@ -1,4 +1,4 @@
-import User from './user.ts';
-import Thought from './thought.ts';
+import User from './User';
+import Thought from './Thought';
 
 export { User, Thought };
