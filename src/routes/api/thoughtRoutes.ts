@@ -8,7 +8,7 @@ import {
     deleteThought,
     addReaction,
     removeReaction,
-} from '../../controllers/thoughtController.ts';
+} from '../../controllers/thoughtController';
 
 const router = Router();
 
@@ -20,4 +20,4 @@ router.route('/:thoughtId/reactions').post(addReaction);
 
 router.route('/:thoughtId/reactions/:reactionId').delete(removeReaction);
 
-export default router;
+export { router as thoughtRoutes };

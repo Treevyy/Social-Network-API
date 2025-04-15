@@ -8,7 +8,7 @@ import {
     deleteUser,
     addFriend,
     removeFriend,
-} from '../../controllers/userController.ts';
+} from '../../controllers/userController';
 
 const router = Router();
 
@@ -18,4 +18,4 @@ router.route('/:userId').get(getSingleUser).put(updateUser).delete(deleteUser);
 
 router.route('/:userId/friends/:friendId').post(addFriend).delete(removeFriend);
 
-export default router;
+export { router as userRoutes };
