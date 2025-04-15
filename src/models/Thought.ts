@@ -1,4 +1,6 @@
 import { Schema, Types, model } from 'mongoose' 
+import { dateFormat } from '../utils/dateFormate'
+
 
 interface IThought extends Document {
     thoughtText: String,
@@ -37,8 +39,9 @@ const reactionSchema = new Schema<IReaction>(
     },
     {
         toJSON: {
-            timestamp: true,
+            getters: true,
         },
+        timestamps: true,
         id: false,
     }
 );
