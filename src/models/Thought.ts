@@ -1,5 +1,5 @@
 import { Schema, Types, model } from 'mongoose' 
-import { dateFormat } from '../utils/dateFormate'
+import { dateFormat } from '../utils/dateFormate.js'
 
 
 interface IThought extends Document {
